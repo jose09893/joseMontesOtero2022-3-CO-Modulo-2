@@ -21,29 +21,18 @@ class Dinosaur(Sprite):
 
 
     def update(self, user_input): 
-        if self.clock >= 2:
+        if self.clock >= 2: #para que no se tome dos veces la tecla
             if self.dino_run == True:
-                self.run()
-        
-               
+                self.run()  
             elif self.dino_jump == True:
-                self.jump()
-            
-            
+                self.jump()  
             elif self.dino_duck == True:
                 self.duck()
-        
-          
-            
-
        
-            if user_input[pygame.K_DOWN]  and not self.dino_duck:
+            if user_input[pygame.K_DOWN]  and not self.dino_duck and not self.dino_jump:
                 self.dino_duck = True
                 self.dino_run = False
                 self.clock = 0
-
-        
-        
          
             if user_input[pygame.K_UP]  and not self.dino_jump and not self.dino_duck :
                 self.dino_jump = True
@@ -61,7 +50,6 @@ class Dinosaur(Sprite):
 
             if self.step_index >= 10:
                 self.step_index = 0 
-
         else:
             self.clock+=1
 
