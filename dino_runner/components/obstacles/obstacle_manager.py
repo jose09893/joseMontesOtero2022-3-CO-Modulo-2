@@ -1,17 +1,42 @@
 import pygame
+import random
 
+from random import choice
 from dino_runner.components.obstacles.cactus import Cactus
-from dino_runner.utils.constants import SMALL_CACTUS
+from dino_runner.components.obstacles.bird import Bird
+from dino_runner.utils.constants import SMALL_CACTUS, LARGE_CACTUS, BIRD
 
 
 class ObstacleManager():
+
     def __init__(self):
         self.obstacles = []
+        self.step = 0
+        
 
     def update(self, game):
+        
         if len(self.obstacles) == 0:
-            cactus = Cactus(SMALL_CACTUS)
-            self.obstacles.append(cactus)
+            random_obstacle = choice([choice([SMALL_CACTUS,LARGE_CACTUS]),BIRD])
+               #! hacer que se a aleatorio entra catus y ave
+            if random_obstacle ==  SMALL_CACTUS or random_obstacle == LARGE_CACTUS:
+                obstacle = Cactus(random_obstacle) 
+            if random_obstacle == LARGE_CACTUS:
+                obstacle.rect.y = 295
+            elif random_obstacle == BIRD:
+                obstacle = Bird(random_obstacle)
+    
+                
+                
+
+
+                
+                
+            self.obstacles.append(obstacle)
+
+
+            
+            
 
         for obstacle in self.obstacles:
             obstacle.update(game.game_speed, self.obstacles)

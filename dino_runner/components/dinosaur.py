@@ -6,6 +6,8 @@ class Dinosaur(Sprite):
     X_POS = 80
     Y_POS_DUCKING = 345
     Y_POS = 310
+    WIDTH_DINO_RUN = 65
+    WIDTH_DINO_DUCKING = 100
     JUMP_SPEED = 8.5
 
     def __init__(self):
@@ -13,6 +15,7 @@ class Dinosaur(Sprite):
         self.dino_rect = self.image.get_rect() ## debuelve un rectangulo con la imagen
         self.dino_rect.x = self.X_POS
         self.dino_rect.y = self.Y_POS
+        self.dino_rect.w = self.WIDTH_DINO_RUN
         self.jump_speed = 8.5
         self.step_index = 0
         self.clock = 0
@@ -22,6 +25,7 @@ class Dinosaur(Sprite):
 
 
     def update(self, user_input): 
+        
         if self.clock >= 2: #para que no se tome dos veces la tecla
             if self.dino_run == True:
                 self.run()  
@@ -60,6 +64,7 @@ class Dinosaur(Sprite):
         self.dino_rect = self.image.get_rect()
         self.dino_rect.x = self.X_POS
         self.dino_rect.y = self.Y_POS
+        self.dino_rect.w = self.WIDTH_DINO_RUN
         self.step_index += 1 #contamos
 
     def jump(self):
@@ -80,6 +85,7 @@ class Dinosaur(Sprite):
         self.dino_rect = self.image.get_rect()
         self.dino_rect.x = self.X_POS
         self.dino_rect.y = self.Y_POS_DUCKING
+        self.dino_rect.w = self.WIDTH_DINO_DUCKING
         self.step_index += 1
 
     def draw(self, screen):
