@@ -70,3 +70,19 @@ BG = pygame.image.load(os.path.join(IMG_DIR, 'Other/Track.png'))
 HEART = pygame.image.load(os.path.join(IMG_DIR, 'Other/SmallHeart.png'))
 
 DEFAULT_TYPE = "default"
+
+FONT_STYLE = 'freesansblod.ttf'
+
+COLORS = {
+    'aliceblue' : (240, 248, 255),
+    'antiquewhite': (250, 235, 215),
+    'aqua' : (0, 255, 255),
+    'chartreuse': (127, 255, 0),
+    'blue': (0, 0, 255),
+    'crimson': (220, 20, 60),
+    'chocolate': (210, 105, 30),
+    'white': (255, 255, 255),
+    'black': (0, 0, 0),
+    'green': (0,255,0),
+    'red' : (255, 0, 0)
+}

@@ -3,7 +3,7 @@ import random
 from random import choice
 from pygame.sprite import Sprite
 from dino_runner.utils.constants import SCREEN_WIDTH
-from dino_runner.utils.constants import SMALL_CACTUS, LARGE_CACTUS, BIRD
+from dino_runner.utils.constants import  BIRD
 
 class Obstacle(Sprite):
     
@@ -29,7 +29,6 @@ class Obstacle(Sprite):
 
     def fly(self):
         if self.image == BIRD:
-            
             self.obstacle_type = 0 if self.step_index < 5 else 1
             self.step_index += 1
             

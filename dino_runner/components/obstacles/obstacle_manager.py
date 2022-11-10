@@ -18,30 +18,23 @@ class ObstacleManager():
         
         if len(self.obstacles) == 0:
             random_obstacle = choice([choice([SMALL_CACTUS,LARGE_CACTUS]),BIRD])
-               #! hacer que se a aleatorio entra catus y ave
+               
             if random_obstacle ==  SMALL_CACTUS or random_obstacle == LARGE_CACTUS:
                 obstacle = Cactus(random_obstacle) 
             if random_obstacle == LARGE_CACTUS:
                 obstacle.rect.y = 295
             elif random_obstacle == BIRD:
                 obstacle = Bird(random_obstacle)
-    
-                
-                
-
-
-                
-                
+                     
             self.obstacles.append(obstacle)
-
-
-            
             
 
         for obstacle in self.obstacles:
             obstacle.update(game.game_speed, self.obstacles)
             if game.player.dino_rect.colliderect(obstacle.rect):
                 pygame.time.delay(1000)
+                game.death_count += 1
+                
                 game.playing = False
                 break
 
@@ -49,3 +42,7 @@ class ObstacleManager():
     def draw(self, screen):
         for obstacle in self.obstacles:
             obstacle.draw(screen)
+
+    def reset_obstacle(self):
+        self.obstacles = []
+        
