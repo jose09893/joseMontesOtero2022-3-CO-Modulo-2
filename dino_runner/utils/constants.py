@@ -1,5 +1,6 @@
 import pygame
 import os
+from io import open
 
 # Global Constants
 TITLE = "Chrome Dino Runner"
@@ -10,6 +11,7 @@ IMG_DIR = os.path.join(os.path.dirname(__file__), "..", "assets")
 
 # Assets Constants
 ICON = pygame.image.load(os.path.join(IMG_DIR, "DinoWallpaper.png"))
+GAME_OVER_TEXT = pygame.image.load(os.path.join(IMG_DIR, "Other/GameOver.png"))
 
 RUNNING = [
     pygame.image.load(os.path.join(IMG_DIR, "Dino/DinoRun1.png")),
@@ -71,6 +73,8 @@ HEART = pygame.image.load(os.path.join(IMG_DIR, 'Other/SmallHeart.png'))
 
 DEFAULT_TYPE = "default"
 
+SHIELD_TYPE = "shield"
+
 FONT_STYLE = 'freesansblod.ttf'
 
 COLORS = {
@@ -84,5 +88,10 @@ COLORS = {
     'white': (255, 255, 255),
     'black': (0, 0, 0),
     'green': (0,255,0),
-    'red' : (255, 0, 0)
+    'red' : (255, 0, 0),
+    'yellow': (255, 255, 0),
+    'violet': (238, 130, 238),
+    'tan': (210, 180, 140)
 }
+
+
