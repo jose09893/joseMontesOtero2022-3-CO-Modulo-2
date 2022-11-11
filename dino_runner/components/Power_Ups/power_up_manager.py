@@ -1,6 +1,6 @@
 import pygame
 from random import randint
-from dino_runner.components.Power_Ups.shield import Shield
+from dino_runner.components.power_ups.shield import Shield
 
 
 class PowerUpManager():

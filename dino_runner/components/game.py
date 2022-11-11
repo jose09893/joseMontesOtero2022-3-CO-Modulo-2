@@ -3,7 +3,7 @@ import pygame
 from dino_runner.utils.constants import BG, ICON, SCREEN_HEIGHT, SCREEN_WIDTH, TITLE, FPS, FONT_STYLE,COLORS,GAME_OVER_TEXT,DEFAULT_TYPE
 from dino_runner.components.dinosaur import Dinosaur
 from dino_runner.components.obstacles.obstacle_manager import ObstacleManager
-from dino_runner.components.Power_Ups.power_up_manager import PowerUpManager
+from dino_runner.components.power_ups.power_up_manager import PowerUpManager
 from dino_runner.components.message import draw_message
 
 class Game:
@@ -78,26 +78,6 @@ class Game:
         pygame.display.update()
         pygame.display.flip()
     
-    
-
-    # def show_text(self,half_screen_width,half_screen_height,color):
-     #   font = pygame.font.Font(None, 30)
-      #  text = font.render("press any key to start ...", True, (color))
-       # text_rect = text.get_rect()
-        #text_rect.center = (half_screen_width, half_screen_height)
-        #self.screen.blit(text, text_rect) 
-
-    # def show_result(self,half_screen_width, half_screen_height,color):
-     #   font = pygame.font.Font(None, 30)
-      #  show_result = [font.render(f"Your Score: {self.score}", True, (COLORS[color]))
-       # ,font.render(f"Highest score: {self.hig_score}", True, (COLORS[color])) 
-        #,font.render(f"total deaths: {self.death_count}", True, (COLORS[color]))]
-        #i = 0
-        #for result in show_result:
-         #       i += 30
-          #      result_rect = result.get_rect()
-           #     result_rect.center = (half_screen_width, half_screen_height)
-            #    self.screen.blit(result, (result_rect.x, result_rect.y + i))
 
     def show_menu(self):
         self.screen.fill(self.color_menu)
@@ -106,7 +86,6 @@ class Game:
 
         if self.death_count == 0:
             draw_message("press any key to start ...", self.screen)
-            #self.show_text(half_screen_width, half_screen_height, self.text_color)
             self.screen.blit(ICON, (half_screen_width - 50, half_screen_height - 140))
         else:##pantalla de muerte
             draw_message("press any key to restart ...", self.screen)
@@ -116,8 +95,7 @@ class Game:
             GAME_OVER_TEXT_RECT = GAME_OVER_TEXT.get_rect()
             GAME_OVER_TEXT_RECT.center = (half_screen_width, half_screen_height)
             self.screen.blit(GAME_OVER_TEXT, (GAME_OVER_TEXT_RECT.x, GAME_OVER_TEXT_RECT.y - 100))
-            #self.show_text(half_screen_width, half_screen_height, self.text_color)
-            #self.show_result(half_screen_width, half_screen_height, self.text_color)    
+           
 
         
         pygame.display.update()
