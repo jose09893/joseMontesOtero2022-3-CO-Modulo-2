@@ -22,5 +22,5 @@ class PowerUp(Sprite):
         pass
 
     def draw(self, screen):
-        print("power up")
+        
         screen.blit(self.image, self.rect)
