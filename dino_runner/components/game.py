@@ -1,10 +1,11 @@
 import pygame
 from random import randint
-from dino_runner.utils.constants import BG,SKY, ICON, SCREEN_HEIGHT, SCREEN_WIDTH, TITLE, FPS, FONT_STYLE,COLORS,GAME_OVER_TEXT,DEFAULT_TYPE
+from dino_runner.utils.constants import BG,SKY, ICON, SCREEN_HEIGHT, SCREEN_WIDTH, TITLE, FPS, FONT_STYLE,COLORS,GAME_OVER_TEXT,DEFAULT_TYPE,HEART
 from dino_runner.components.dinosaur import Dinosaur
 from dino_runner.components.obstacles.obstacle_manager import ObstacleManager
 from dino_runner.components.power_ups.power_up_manager import PowerUpManager
 from dino_runner.components.background.background_manager import BakgroundManager
+from dino_runner.components.heart import Heart
 from dino_runner.components.message import draw_message
 from dino_runner.components.save_score import save_score, show_score
 
@@ -26,10 +27,12 @@ class Game:
         self.obstacle_manager = ObstacleManager()
         self.power_up_manager = PowerUpManager()
         self.background_manager = BakgroundManager()
+        self.hearts_manager = Heart()
         self.running = False
         self.score = 0
         self.hig_score = 0
         self.death_count = 0
+        self.hearts = 3
         self.color_menu = COLORS["white"]
         self.background_color = COLORS["white"]
         self.text_color = 'black'
@@ -57,6 +60,7 @@ class Game:
         pygame.quit()
 
     def reset_all(self):
+        self.hearts = 3
         self.text_score_color = "blue"
         self.background_color = COLORS["white"]
         self.background_img = BG
@@ -74,6 +78,7 @@ class Game:
 
     def run(self):
         self.reset_all()
+        
         # Game loop: events - update - draw
         while self.playing:
             self.events()
@@ -118,6 +123,7 @@ class Game:
         self.night()
         self.draw_power_up_time()
         self.draw_score()
+        self.hearts_manager.draw(self.screen,self.hearts)
         
         pygame.display.update()
         pygame.display.flip()
@@ -210,12 +216,4 @@ class Game:
                 self.background_color = COLORS["white"]
                 self.background_img = BG
                 self.y_pos_bg = 380
-                self.score_night= self.score_night + 1000
-
-            
-            
-
-        
-
-        
-            
+                self.score_night= self.score_night + 1000   

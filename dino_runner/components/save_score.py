@@ -29,14 +29,14 @@ def show_score(game,text):
         draw_message(f"Your Score: {game.score}",game.screen,pos_y_center = half_screen_height + 30)
         draw_message(f"Highest score: {game.hig_score}",game.screen,pos_y_center = half_screen_height + 60)
         draw_message(f" new best score: {max} ",game.screen,pos_y_center = half_screen_height + 90)
-        draw_message(f"total deaths: {game.death_count}",game.screen,pos_y_center = half_screen_height + 130)
+        draw_message(f"total deaths: {game.death_count}",game.screen,pos_y_center = half_screen_height + 120)
         
     else:
         draw_message("press any key to restart ...", game.screen)
         draw_message(f"Your Score: {game.score}",game.screen,pos_y_center = half_screen_height + 30)
         draw_message(f"Highest score: {game.hig_score}",game.screen,pos_y_center = half_screen_height + 60)
         draw_message(f" {game.user_name} Your max Score: {max} ",game.screen,pos_y_center = half_screen_height + 90)
-        draw_message(f"total deaths: {game.death_count}",game.screen,pos_y_center = half_screen_height + 130)
+        draw_message(f"total deaths: {game.death_count}",game.screen,pos_y_center = half_screen_height + 120)
        
     #*for i in range(0,len(scores),2):
      #*   x += 70
